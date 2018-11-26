@@ -1,0 +1,16 @@
+.menu {
+    &__inner{
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+    &__item {
+        .menu__item--selected {
+                color:red;
+            }
+    }
+    &__item a{
+        text-decoration: none;
+    }
+}
