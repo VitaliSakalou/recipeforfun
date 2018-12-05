@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getRandomMeals } from '../../actions/randommealsActions'
 import { getLatestMeals } from '../../actions/latestmealsActions'
+import SearchMainComponent from '../SearchMainComponent/SearchMainComponent'
 
 class Main extends React.PureComponent {
   static propTypes = {
@@ -15,6 +16,7 @@ class Main extends React.PureComponent {
   }
 
   componentDidMount() {
+    console.log(Object.keys(this.props.randommeals.randommeal))
     Object.keys(this.props.randommeals.randommeal).length === 0 &&
       this.props.getRandomMealsAction()
     this.props.latestmeals.listoflatestmeals.length === 0 &&
@@ -27,6 +29,7 @@ class Main extends React.PureComponent {
     } = this
     return (
       <div className="container">
+        <SearchMainComponent />
         <LastRecipes latestmeals={latestmeals} />
         <RandomRecipe randommeals={randommeals} />
         <ButtomRandomRecipe cbGetRandomMealsAction={getRandomMealsAction} />

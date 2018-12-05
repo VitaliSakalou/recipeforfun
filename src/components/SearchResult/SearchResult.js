@@ -10,30 +10,30 @@ class SearchResult extends React.PureComponent {
 
   render() {
     let {
-      props: { meals, value },
+      props: { meals },
     } = this
     return (
       <div>
-        {meals.resultOfSearch.length !== 0 && value.length > 2 && (
-          <div>
-            {meals.error ? (
-              <p>{meals.error}</p>
-            ) : meals.isFetching ? (
-              <p>...loading</p>
-            ) : (
-              meals.resultOfSearch.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <NavLink to={`/recipe/search/${item.idMeal}`}>
-                      <p>{item.strMeal}</p>
-                    </NavLink>
-                    {item.strMeal}
-                  </div>
-                )
-              })
-            )}
-          </div>
-        )}
+        <div>
+          {meals.error ? (
+            <p>{meals.error}</p>
+          ) : meals.isFetching ? (
+            <div>
+              <p>...loading!!!</p>
+            </div>
+          ) : (
+            meals.resultOfSearch.map((item, index) => {
+              return (
+                <div key={index}>
+                  <NavLink to={`/recipe/search/${item.idMeal}`}>
+                    <p>{item.strMeal}</p>
+                  </NavLink>
+                  {item.strMeal}
+                </div>
+              )
+            })
+          )}
+        </div>
       </div>
     )
   }

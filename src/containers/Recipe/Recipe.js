@@ -4,6 +4,7 @@ import RecipeOfMeal from '../../components/RecipeOfMeal/RecipeOfMeal'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getMeal } from '../../actions/mealsActions'
+import SearchMainComponent from '../../containers/SearchMainComponent/SearchMainComponent'
 
 class Recipe extends React.PureComponent {
   static props = {
@@ -12,7 +13,8 @@ class Recipe extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.props.getMeal(this.props.match.params.param)
+    !this.props.meals.meal[this.props.match.params.param] &&
+      this.props.getMeal(this.props.match.params.param)
   }
 
   definedBackUrl = param => {
@@ -36,6 +38,7 @@ class Recipe extends React.PureComponent {
     } = this
     return (
       <div className="container">
+        <SearchMainComponent />
         <p
           onClick={() =>
             history.push(`/${this.definedBackUrl(match.params.type)}`)

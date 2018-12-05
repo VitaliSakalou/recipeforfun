@@ -24,9 +24,9 @@ class Recipes extends React.PureComponent {
             return (
               <div key={index}>
                 <NavLink
-                  to={`/recipe/${
-                    match.params.type
-                  }/${match.params.param.toLowerCase()}/${item.idMeal}`}
+                  to={`/recipe/${match.params.type}/${match.params.param}/${
+                    item.idMeal
+                  }`}
                 >
                   <p>{item.strMeal}</p>
                   <img

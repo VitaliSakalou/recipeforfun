@@ -1,0 +1,14 @@
+.search-button {
+    &__button{
+        padding: 10px;
+        transition: .3s;
+        &--open{
+            &:hover{
+                opacity: .7;
+            }
+            &:active{
+                opacity: .9;
+            }
+        }
+    }
+}

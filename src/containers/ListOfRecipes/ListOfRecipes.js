@@ -7,12 +7,10 @@ import Recipes from '../../components/Recipes/Recipes'
 class ListOfRecipes extends React.PureComponent {
   componentDidMount() {
     let prefix = this.props.match.params.type === 'area' ? 'a=' : 'c='
+    let param = this.props.match.params.param
 
-    !this.props.listOfMeals.listOfMeals[this.props.match.params.param] &&
-      this.props.getListOfMeals(
-        prefix + this.props.match.params.param,
-        this.props.match.params.param
-      )
+    !this.props.listOfMeals.listOfMeals[param] &&
+      this.props.getListOfMeals(prefix + param, param)
   }
 
   render() {

@@ -1,6 +1,8 @@
 export const GET_MEAL_REQUEST = 'GET_MEAL_REQUEST'
 export const GET_MEAL_SUCCESS = 'GET_MEAL_SUCCESS'
 export const GET_MEAL_ERROR = 'GET_MEAL_ERROR'
+export const CLEAN_RESULT_OF_SEARCH = 'CLEAN_RESULT_OF_SEARCH'
+export const FIND_MEAL_SUCCESS = 'FIND_MEAL_SUCCESS'
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
 

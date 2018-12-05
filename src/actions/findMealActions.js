@@ -1,6 +1,7 @@
-export const GET_MEAL_REQUEST = 'GET_MEAL_REQUEST'
-export const GET_MEAL_SUCCESS = 'GET_MEAL_SUCCESS'
-export const GET_MEAL_ERROR = 'GET_MEAL_ERROR'
+import { GET_MEAL_REQUEST } from './mealsActions'
+import { GET_MEAL_ERROR } from './mealsActions'
+import { FIND_MEAL_SUCCESS } from './mealsActions'
+
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
@@ -22,7 +23,7 @@ export const findMeal = nameMeal => dispatch => {
       if (stories.meals === null) {
         data = { meals: [] }
       }
-      dispatch({ type: GET_MEAL_SUCCESS, payload: data })
+      dispatch({ type: FIND_MEAL_SUCCESS, payload: data })
     })
     .catch(error => {
       dispatch({ type: GET_MEAL_ERROR, payload: {}, error: error })

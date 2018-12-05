@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css'
+import './App.scss'
 import { Route, Switch } from 'react-router-dom'
 import Main from './Main/Main'
 import Category from './Category/Category'
@@ -7,7 +7,6 @@ import Area from './Area/Area'
 import Menu from '../components/Menu/Menu'
 import ListOfRecipes from './ListOfRecipes/ListOfRecipes'
 import Recipe from './Recipe/Recipe'
-import SearchMeals from './SearchMeals/SearchMeals'
 
 class App extends Component {
   pageRender = () => {
@@ -26,7 +25,6 @@ class App extends Component {
     return (
       <div className="App">
         <Menu />
-        <SearchMeals />
         {this.pageRender()}
       </div>
     )
