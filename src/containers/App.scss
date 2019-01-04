@@ -1,7 +1,3 @@
-html {
-    box-sizing: border-box;
-  }
-
 .container {
       width: 100%;
       padding-right: 15px;
@@ -21,6 +17,11 @@ html {
       outline: none;
   }
  }
+
+  a {
+    text-decoration: none;
+    color: black;
+    }
 
   @media (min-width: 576px) {
     .container {

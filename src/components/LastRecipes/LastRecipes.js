@@ -1,35 +1,77 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Preloader from '../Preloader/Preloader'
+import Title from '../Title/Title'
+import { NavLink } from 'react-router-dom'
 
-export default class LastRecipes extends React.PureComponent {
+import './LastRecipes.scss'
+
+class LastRecipes extends React.PureComponent {
   static propTypes = {
     latestmeals: PropTypes.object,
   }
 
+  static defaultProps = {
+    latestmeals: {
+      error: 'no data',
+    },
+  }
+
+  mainClassCss = 'latest-meals'
+
   render() {
     let {
       props: { latestmeals },
+      mainClassCss,
     } = this
 
     return (
-      <div className="container">
+      <section className={`${mainClassCss}`}>
+        <Title title={`10 Latest Meals`} />
+
         {latestmeals.error ? (
-          <p>{latestmeals.error}</p>
+          <p className={`${mainClassCss}__loader`}>{latestmeals.error}</p>
         ) : latestmeals.isFetching ? (
-          <p>...Loading</p>
+          <div className={`${mainClassCss}__loader`}>
+            <Preloader />
+          </div>
         ) : (
-          latestmeals.listoflatestmeals.map((item, index) => {
-            return (
-              <img
-                src={item.strMealThumb}
-                alt="img"
-                key={index}
-                style={{ height: '100px' }}
-              />
-            )
-          })
+          <div className={`${mainClassCss}__grid`}>
+            {latestmeals.listoflatestmeals.map((item, index) => {
+              return (
+                <NavLink
+                  className={`${mainClassCss}__grid-item item-${index}`}
+                  key={index}
+                  to={`/recipe/main/${item.idMeal}`}
+                >
+                  <figure
+                    className={`${mainClassCss}__figure`}
+                    style={{
+                      background: `url(${
+                        item.strMealThumb
+                      }) no-repeat 0 50% / cover`,
+                    }}
+                  >
+                    <figcaption className={`${mainClassCss}__figcaption`}>
+                      <p className={`${mainClassCss}__description`}>
+                        {item.strMeal}
+                      </p>
+                      <p className={`${mainClassCss}__description-tags`}>
+                        {item.strTags && item.strTags.split(',').join(', ')}
+                      </p>
+                      <p className={`${mainClassCss}__description-category`}>
+                        {item.strCategory}
+                      </p>
+                    </figcaption>
+                  </figure>
+                </NavLink>
+              )
+            })}
+          </div>
         )}
-      </div>
+      </section>
     )
   }
 }
+
+export default LastRecipes

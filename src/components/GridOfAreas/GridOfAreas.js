@@ -1,37 +1,73 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Preloader from '../Preloader/Preloader'
+import Title from '../Title/Title'
+import { getCountryFlag } from '../../functions/functions'
 import { NavLink } from 'react-router-dom'
+import './GridOfAreas.scss'
 
-export default class GridOfAreas extends React.PureComponent {
+class GridOfAreas extends React.PureComponent {
   static propTypes = {
     area: PropTypes.object,
   }
 
+  static defaultProps = {
+    area: {
+      error: 'no data',
+    },
+  }
+
+  mainClassCss = 'areas'
+
   render() {
     let {
       props: { area },
+      mainClassCss,
     } = this
     return (
-      <div className="container">
+      <section className={`${mainClassCss} container`}>
+        <Title
+          title={` Select the country of origin of the meals`}
+          size={'small'}
+        />
         {area.error ? (
-          <p>{area.error}</p>
+          <p className={`${mainClassCss}__loader`}>{area.error}</p>
         ) : area.isFetching ? (
-          <p>...Loading</p>
+          <div className={`${mainClassCss}__loader`}>
+            <Preloader />
+          </div>
         ) : (
-          area.listOfArea.map((item, index) => {
-            return (
-              <NavLink
-                key={index}
-                exact
-                to={`/listofrecipes/area/${item.strArea}`}
-                activeClassName="menu__item--selected"
-              >
-                <p>{item.strArea}</p>
-              </NavLink>
-            )
-          })
+          <div className={`${mainClassCss}__grid`}>
+            {area.listOfArea.map((item, index) => {
+              return (
+                <NavLink
+                  key={index}
+                  exact
+                  to={`/listofrecipes/area/${item.strArea}`}
+                  activeClassName="menu__item--selected"
+                >
+                  <div className={`${mainClassCss}__tile`}>
+                    <div className={`${mainClassCss}__tile-content`}>
+                      <img
+                        className={`${mainClassCss}__img`}
+                        src={`https://www.countryflags.io/${getCountryFlag(
+                          item.strArea
+                        )}/shiny/64.png`}
+                        alt={getCountryFlag(item.strArea)}
+                      />
+                      <p className={`${mainClassCss}__description`}>
+                        {item.strArea}
+                      </p>
+                    </div>
+                  </div>
+                </NavLink>
+              )
+            })}
+          </div>
         )}
-      </div>
+      </section>
     )
   }
 }
+
+export default GridOfAreas

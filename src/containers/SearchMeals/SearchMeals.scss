@@ -3,21 +3,21 @@
 .search-component {
     position: absolute;
     z-index: 100;
-    background-color:lightblue;
+    background-color:white;
     top: 0;
     right: 0;
     left: 0;
-    &__button{
-      padding: 10px;
-      transition: .3s;
-      &--close{
-          &:hover{
-              opacity: .7;
-          }
-          &:active{
-              opacity: .9;
-          }
-      }
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    
+  &__background{
+    position: fixed;
+    z-index: 90;
+    background-color: rgba(27, 39, 51, 0.5);
+    top:0;
+    right: 0;
+    left: 0;
+    bottom: 0;
   }
 }
 .example-enter {

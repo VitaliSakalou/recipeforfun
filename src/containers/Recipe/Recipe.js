@@ -4,13 +4,17 @@ import RecipeOfMeal from '../../components/RecipeOfMeal/RecipeOfMeal'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { getMeal } from '../../actions/mealsActions'
-import SearchMainComponent from '../../containers/SearchMainComponent/SearchMainComponent'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+import PreviousPage from '../../components/PreviousPage/PreviousPage'
 
 class Recipe extends React.PureComponent {
   static props = {
     match: PropTypes.object,
     meals: PropTypes.object,
   }
+
+  mainClassCss = 'recipe'
 
   componentDidMount() {
     !this.props.meals.meal[this.props.match.params.param] &&
@@ -22,8 +26,11 @@ class Recipe extends React.PureComponent {
       props: { match },
     } = this
     switch (param) {
-      case 'search': {
+      case 'main': {
         return ''
+      }
+      case 'random': {
+        return 'random'
       }
       default:
         return `listofrecipes/${match.params.type}/${
@@ -35,18 +42,20 @@ class Recipe extends React.PureComponent {
   render() {
     let {
       props: { meals, history, match },
+      mainClassCss,
     } = this
     return (
-      <div className="container">
-        <SearchMainComponent />
-        <p
-          onClick={() =>
+      <div className={`${mainClassCss}`}>
+        <Header small={true} />
+        <PreviousPage
+          func={() =>
             history.push(`/${this.definedBackUrl(match.params.type)}`)
           }
-        >
-          Go back
-        </p>
-        <RecipeOfMeal meals={meals} match={match} />
+        />
+        <main className={'container'}>
+          <RecipeOfMeal meals={meals} match={match} />
+        </main>
+        <Footer text={'vitali.sakalou@gmail.com'} />
       </div>
     )
   }

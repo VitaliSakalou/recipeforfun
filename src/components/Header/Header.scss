@@ -1,0 +1,46 @@
+.header {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 100px;
+    &__main-title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 8rem;
+        color: white;
+        text-align: center;
+    }
+    &__second-title {
+        font-family: 'Roboto', sans-serif;
+        font-size: 6rem;
+        color: white;
+        text-align: center;
+    }
+    &__small{
+        padding-bottom: 50px;
+        .header__main-title {
+            font-size: 5rem;
+        }
+    }
+    &__bg{
+    -webkit-filter: brightness(50%);
+    transition: 3s;
+    height: 550px;
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    top:0;
+        &-1{
+            background: url('../../img/backgrounds/bg-1.jpg') 50% 50%/ cover;
+        }   
+        &-2{
+            background: url('../../img/backgrounds/bg-2.jpg') 50% 50%/ cover;
+        }   
+        &-3{
+            background: url('../../img/backgrounds/bg-3.jpg') 50% 50%/ cover;
+        }   
+    }
+
+    &__title {
+        margin: 20px;
+    }
+   
+}

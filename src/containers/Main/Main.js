@@ -1,50 +1,50 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import RandomRecipe from '../../components/RandomRecipe/RandomRecipe.js'
-import ButtomRandomRecipe from '../../components/ButtomRandomRecipe/ButtomRandomRecipe.js'
 import LastRecipes from '../../components/LastRecipes/LastRecipes.js'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { getRandomMeals } from '../../actions/randommealsActions'
 import { getLatestMeals } from '../../actions/latestmealsActions'
-import SearchMainComponent from '../SearchMainComponent/SearchMainComponent'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+
+import './main.scss'
 
 class Main extends React.PureComponent {
   static propTypes = {
-    randommeals: PropTypes.object,
     latestmeals: PropTypes.object,
   }
 
+  className = 'main-page'
+
   componentDidMount() {
-    console.log(Object.keys(this.props.randommeals.randommeal))
-    Object.keys(this.props.randommeals.randommeal).length === 0 &&
-      this.props.getRandomMealsAction()
     this.props.latestmeals.listoflatestmeals.length === 0 &&
       this.props.getLatestMealsAction()
   }
 
   render() {
     let {
-      props: { latestmeals, randommeals, getRandomMealsAction },
+      props: { latestmeals },
+      className,
     } = this
     return (
-      <div className="container">
-        <SearchMainComponent />
-        <LastRecipes latestmeals={latestmeals} />
-        <RandomRecipe randommeals={randommeals} />
-        <ButtomRandomRecipe cbGetRandomMealsAction={getRandomMealsAction} />
+      <div>
+        <Header />
+        <div className="container">
+          <main className={`${className}__main-content`}>
+            <LastRecipes latestmeals={latestmeals} />
+          </main>
+        </div>
+        <Footer text={'vitali.sakalou@gmail.com'} />
       </div>
     )
   }
 }
 
 const mapStateToProps = store => ({
-  randommeals: store.randommeals,
   latestmeals: store.latestmeals,
 })
 
 const mapDispatchToProps = dispatch => ({
-  getRandomMealsAction: randommeals => dispatch(getRandomMeals(randommeals)),
   getLatestMealsAction: latestmeals => dispatch(getLatestMeals(latestmeals)),
 })
 

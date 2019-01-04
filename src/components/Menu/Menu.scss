@@ -1,16 +1,98 @@
 .menu {
-    &__inner{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    transition: 1s;
+    &__wrapper{
+        height: 90px;
+        .menu{
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+    &--small-menu{
+        position: fixed;
+        width: 100%;
+        background: rgba(45,45,45,.7);
+        top:0;
+        left:0;
+        right: 0;
+        transition: 1s;
+        z-index: 1000;
+    }
+    &__list{
         list-style-type: none;
         padding: 0;
         display: flex;
+        height: 50px;
         justify-content: space-around;
+        align-items: flex-start;
     }
     &__item {
-        .menu__item--selected {
-                color:red;
+        flex-basis: 140px;
+        text-align: center;
+        font-size: 1.2rem;
+        font-family: 'Roboto', sans-serif;
+        transition: .3s;
+        &:hover{
+            path{
+                fill: white;
             }
-    }
-    &__item a{
-        text-decoration: none;
+        }
+        &-flex{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 50px;
+            
+            svg{
+                height: 60%;
+                path{
+                    transition: .3s;
+                }
+            }
+        }
+        &-icon{
+            display: flex;
+            align-items: flex-start;
+            height: 100%;
+            padding: 5px;
+        }
+        &:after{
+            background-color: white;
+            display: block;
+            content: "";
+            height: 2px;
+            width: 0%;
+            -webkit-transition: width .3s ease-in-out;
+            -moz--transition: width .3s ease-in-out;
+            transition: width .3s ease-in-out;
+            
+        }
+        &:hover:after,
+        &:focus:after {
+                width: 100%;
+            }
+        .menu__item--selected {
+            color: white;
+            // background: rgba(31, 30, 30, 0.5);
+            // border-bottom: solid 2px white;
+            path{
+                fill: white;
+            }
+            }
+        & a{
+                text-decoration: none;
+                display: inline-block;
+                color: rgb(189, 188, 188);
+                width: 100%;
+                // height: 40px;
+                transition: .3s;
+                line-height: 40px;
+                vertical-align: baseline;
+                &:hover {
+                    color: white;
+                }
+                 
+            }
     }
 }

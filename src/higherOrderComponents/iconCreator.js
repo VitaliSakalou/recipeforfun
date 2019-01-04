@@ -8,10 +8,12 @@ const IconCreator = WrappedComponent =>
       xmlns: PropTypes.string,
       viewBox: PropTypes.string,
     }
+
     static defaultProps = {
       xmlns: 'http://www.w3.org/2000/svg',
       viewBox: '0 0 1024 1024',
     }
+
     render() {
       const {
         props,
@@ -19,7 +21,7 @@ const IconCreator = WrappedComponent =>
       } = this
       return (
         <svg
-          className={`Icon ${name} ${color ? `${color}` : ``}`}
+          className={`Icon ${name ? `${name}` : ``} ${color ? `${color}` : ``}`}
           xmlns={xmlns}
           viewBox={viewBox}
         >

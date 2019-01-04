@@ -1,4 +1,18 @@
 .Icon {
-    width: 1rem;
     height: 1 rem;
+    width: 1rem;
+}
+.food-icon {
+    height: 100px;
+    &.previous{
+        height: 50px;
+        opacity: .7;
+        transition: .3s;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    g .outline{
+        transition: .3s;
+    }
 }

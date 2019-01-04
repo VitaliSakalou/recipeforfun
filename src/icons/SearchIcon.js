@@ -19,7 +19,6 @@ SearchIcon.propTypes = {
 SearchIcon.defaultProps = {
   color: 'black',
   rotate: 0,
-  name: 'search',
 }
 
 export default IconCreator(SearchIcon)

@@ -1,0 +1,99 @@
+.latest-meals {
+    &__grid{
+        display: grid;
+        .item-0{
+            grid-area: item-0;
+        }
+        .item-1{
+            grid-area: item-1;
+        }
+        .item-2{
+            grid-area: item-2;
+        }
+        .item-3{
+            grid-area: item-3;
+        }
+        .item-4{
+            grid-area: item-4;
+        }
+        .item-5{
+            grid-area: item-5;
+        }
+        .item-6{
+            grid-area: item-6;
+        }
+        .item-7{
+            grid-area: item-7;
+        }
+        .item-8{
+            grid-area: item-8;
+        }
+        .item-9{
+            grid-area: item-9;
+        }
+        grid-template-columns:  repeat(3, 1fr);
+        grid-template-rows: repeat(4, 300px);
+        grid-template-areas: 
+        "item-0 item-1 item-1"
+        "item-2 item-3 item-4"
+        "item-5 item-6 item-7"
+        "item-8 item-8 item-9";
+        grid-gap: 8px;
+        &-item{
+            transition: .3s;
+            overflow: hidden;
+            &:hover{
+                box-shadow: 0 10px 20px 0 rgba(51, 72, 94, 0.15), 0 2px 5px 0 rgba(133, 172, 211, 0.15);
+            }
+        }
+    }
+    
+    &__figure{
+        height: 100%;
+    }
+
+    &__img{
+        
+    }
+
+    &__figcaption{
+       padding: 30px;
+       height: 100%;
+       color: white;
+       font-family: 'Roboto', sans-serif;
+       transition: .3s;
+       background: rgba(26, 26, 26, 0.5);
+       &:hover{
+        background: rgba(26, 26, 26, 0.3);
+        .latest-meals__description{
+            &-tags, &-category{
+                margin-top: 10px;
+                opacity: 1;
+            }
+        }
+       }
+    }
+    
+    &__description{
+        font-size: 2rem; 
+        border-bottom: 1px solid rgb(177, 176, 176);
+        padding-bottom: 10px;
+        &-tags{
+            display: block;
+            margin-top: -30px;
+            font-size: 1.5rem;
+            transition: .3s;
+            opacity: 0;
+        }
+        &-category{
+            display: block;
+            margin-top: -30px;
+            font-size: 1.2rem;
+            transition: .3s;
+            opacity:0;
+        }
+    }
+    &__loader{
+        text-align: center;
+    }
+}

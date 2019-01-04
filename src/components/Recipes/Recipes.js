@@ -1,43 +1,40 @@
 import React from 'react'
 import PropsTypes from 'prop-types'
-import { NavLink } from 'react-router-dom'
+import SearchResult from '../../components/SearchResult/SearchResult'
+import Preloader from '../../components/Preloader/Preloader'
+import './Recipes.scss'
 
 class Recipes extends React.PureComponent {
   static props = {
-    listOfMeals: PropsTypes.object,
-    match: PropsTypes.object,
+    listOfMeals: PropsTypes.object.isRequired,
+    match: PropsTypes.object.isRequired,
   }
+
+  mainClassCss = 'recipes'
 
   render() {
     let {
       props: { listOfMeals, match },
+      mainClassCss,
     } = this
     return (
-      <div>
+      <div className={`${mainClassCss}`}>
         {listOfMeals.error ? (
-          <p>{listOfMeals.error}</p>
+          <p className={`${mainClassCss}__loader`}>{listOfMeals.error}</p>
         ) : listOfMeals.isFetching ? (
-          <p>...Loading</p>
+          <div className={`${mainClassCss}__loader`}>
+            <Preloader />
+          </div>
         ) : (
-          listOfMeals.listOfMeals[match.params.param] &&
-          listOfMeals.listOfMeals[match.params.param].map((item, index) => {
-            return (
-              <div key={index}>
-                <NavLink
-                  to={`/recipe/${match.params.type}/${match.params.param}/${
-                    item.idMeal
-                  }`}
-                >
-                  <p>{item.strMeal}</p>
-                  <img
-                    src={item.strMealThumb}
-                    alt="img"
-                    style={{ height: '100px' }}
-                  />
-                </NavLink>
-              </div>
-            )
-          })
+          listOfMeals.listOfMeals[match.params.param] && (
+            <div>
+              <SearchResult
+                countOnePage={10}
+                meals={listOfMeals.listOfMeals[match.params.param]}
+                prevPageType={`${match.params.type}/${match.params.param}`}
+              />
+            </div>
+          )
         )}
       </div>
     )

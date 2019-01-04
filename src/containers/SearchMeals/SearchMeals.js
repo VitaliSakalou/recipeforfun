@@ -1,15 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { findMeal } from '../../actions/findMealActions'
-import SearchResult from '../../components/SearchResult/SearchResult'
-import InputSearch from '../../components/InputSearch/InputSearch'
-import PortalForSearch from '../../components/PortalForSearch/PortalForSearch'
-import { CLEAN_RESULT_OF_SEARCH } from '../../actions/mealsActions'
+import Portal from '../../components/Portal/Portal'
+import SearchTileComponent from '../../components/SearchTileComponent/SearchTileComponent'
 import { CSSTransitionGroup } from 'react-transition-group'
-import ExitIcon from '../../icons/ExitIcon'
+
 import './SearchMeals.scss'
+
 class SearchMeals extends React.PureComponent {
   constructor(props) {
     super(props)
@@ -18,21 +15,9 @@ class SearchMeals extends React.PureComponent {
 
   mainClassCss = 'search-component' // name of class
 
-  static props = {
-    meals: PropTypes.object,
-    cbShowSearch: PropTypes.bool,
-  }
-
-  findKeyWord = keyWord => {
-    if (keyWord.length > 2) {
-      this.props.findMeal(keyWord)
-    } else if (keyWord.length <= 2) {
-      this.props.dispatch({ type: CLEAN_RESULT_OF_SEARCH })
-    }
-  }
-
-  showSearch = () => {
-    this.props.cbShowSearch()
+  static propTypes = {
+    cbShowSearch: PropTypes.func,
+    showSearch: PropTypes.bool,
   }
 
   componentWillReceiveProps(props) {
@@ -43,6 +28,10 @@ class SearchMeals extends React.PureComponent {
     }
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClickOutside, false)
+  }
+
   handleClickOutside = event => {
     if (this.el && !this.el.current.contains(event.target)) {
       this.props.cbShowSearch()
@@ -51,31 +40,30 @@ class SearchMeals extends React.PureComponent {
 
   render() {
     let {
-      props: { meals, showSearch },
-      findKeyWord,
+      props: { showSearch, cbShowSearch },
       el,
       mainClassCss,
     } = this
+
     return (
-      <div className="container">
+      <div>
         <CSSTransitionGroup
           transitionName="example"
           transitionEnterTimeout={300}
           transitionLeaveTimeout={300}
         >
           {showSearch && (
-            <PortalForSearch>
-              <div className={mainClassCss} ref={el}>
-                <button
-                  className={`${mainClassCss}__button ${mainClassCss}__button--close`}
-                  onClick={this.showSearch}
-                >
-                  <ExitIcon color={'grey'} />
-                </button>
-                <InputSearch cbFindKeyWord={findKeyWord} />
-                <SearchResult meals={meals} />
+            <Portal>
+              <div>
+                <div className={mainClassCss + ' container'} ref={el}>
+                  <SearchTileComponent
+                    cbShowSearch={cbShowSearch}
+                    showSearch={showSearch}
+                  />
+                </div>
+                <div className={`${mainClassCss}__background`} />
               </div>
-            </PortalForSearch>
+            </Portal>
           )}
         </CSSTransitionGroup>
       </div>
@@ -83,18 +71,4 @@ class SearchMeals extends React.PureComponent {
   }
 }
 
-const mapStateToProps = store => ({
-  meals: store.meals,
-})
-
-const mapDispatchToProps = dispatch => ({
-  findMeal: mealName => dispatch(findMeal(mealName)),
-  dispatch: action => dispatch(action),
-})
-
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(SearchMeals)
-)
+export default withRouter(SearchMeals)

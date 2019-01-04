@@ -1,0 +1,10 @@
+.title{
+    text-align: center;
+    font-size: 4rem;
+    color: rgba(180, 190, 220, 1);
+    padding: 50px;
+    min-height: 200px;
+    &__small{
+        font-size: 3rem;
+    }
+}

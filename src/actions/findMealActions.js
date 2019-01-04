@@ -1,4 +1,4 @@
-import { GET_MEAL_REQUEST } from './mealsActions'
+import { GET_SEARCH_REQUEST } from './mealsActions'
 import { GET_MEAL_ERROR } from './mealsActions'
 import { FIND_MEAL_SUCCESS } from './mealsActions'
 
@@ -6,7 +6,7 @@ require('es6-promise').polyfill()
 require('isomorphic-fetch')
 
 export const findMeal = nameMeal => dispatch => {
-  dispatch({ type: GET_MEAL_REQUEST, payload: nameMeal })
+  dispatch({ type: GET_SEARCH_REQUEST, payload: nameMeal })
 
   fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${nameMeal}`)
     .then(function(response) {

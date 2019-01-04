@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import './App.scss'
 import { Route, Switch } from 'react-router-dom'
 import Main from './Main/Main'
 import Category from './Category/Category'
 import Area from './Area/Area'
-import Menu from '../components/Menu/Menu'
+import RandomRecipeContainer from './RandomRecipeContainer/RandomRecipeContainer'
 import ListOfRecipes from './ListOfRecipes/ListOfRecipes'
 import Recipe from './Recipe/Recipe'
+import './App.scss'
 
 class App extends Component {
   pageRender = () => {
@@ -15,6 +15,7 @@ class App extends Component {
         <Route exact path="/" component={Main} />
         <Route path="/category" component={Category} />
         <Route path="/area" component={Area} />
+        <Route path="/random" component={RandomRecipeContainer} />
         <Route path="/listofrecipes/:type/:param" component={ListOfRecipes} />
         <Route path="/recipe/:type/:group?/:param" component={Recipe} />
       </Switch>
@@ -22,12 +23,7 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <Menu />
-        {this.pageRender()}
-      </div>
-    )
+    return <div className="App">{this.pageRender()}</div>
   }
 }
 

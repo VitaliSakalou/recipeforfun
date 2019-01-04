@@ -1,0 +1,63 @@
+.search-tile-component{
+    &__front{
+        padding: 15px;
+        display:flex;
+        justify-content:space-between;
+      }
+      &__button{
+        padding: 10px;
+        transition: .3s;
+        &--close{
+            &:hover{
+                opacity: .7;
+            }
+            &:active{
+                opacity: .9;
+            }
+        }
+    }
+    &__wrapper{
+        height:0px;
+        transition: .3s;
+        &--small-height{
+          height: 140px;
+        }
+        &--big-height{
+          height:auto;
+        }
+      }
+      &__preloader{
+        text-align: center;
+        padding-bottom: 20px;
+        height: 120px;
+      }
+      &__no-result{
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        height: 120px;
+        font-family: 'Roboto', sans-serif;
+        span {
+          display: inline-block;
+          height: 100%;
+          width: 30%;
+          background: url('../../img/empty-plate.jpg') no-repeat 50% 50% / 50%;
+          line-height: 120px;
+          vertical-align: baseline;
+        }
+      }
+      &__error{
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+        height: 120px;
+        font-family: 'Roboto', sans-serif;
+        span {
+          display: inline-block;
+          height: 100%;
+          width: 30%;
+          line-height: 120px;
+          vertical-align: baseline;
+        }
+      }
+}

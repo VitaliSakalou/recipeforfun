@@ -1,20 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './InputSearch.scss'
 
 class InputSearch extends React.PureComponent {
   constructor(props) {
     super(props)
+    this.inputSearchWord = React.createRef()
     this.state = {
       value: '',
     }
-    this.inputSearchWord = React.createRef()
   }
 
-  static props = {
+  static propTypes = {
     cbFindKeyWord: PropTypes.func,
   }
 
-  componentWillReceiveProps(newProps) {
+  mainClassCss = 'input-search'
+
+  componentDidUpdate() {
     this.inputSearchWord.current.focus()
   }
 
@@ -40,10 +43,13 @@ class InputSearch extends React.PureComponent {
         {
           value: '',
         },
-        () => {}
+        () => {
+          this.props.cbFindKeyWord(this.state.value)
+        }
       )
     } else if (keyCode === 13) {
-      this.startTimer(this.state.value)
+      EO.preventDefault()
+      this.props.cbFindKeyWord(this.state.value)
     }
   }
 
@@ -65,16 +71,21 @@ class InputSearch extends React.PureComponent {
       getValue,
       deleteValue,
       inputSearchWord,
+      mainClassCss,
     } = this
     return (
-      <div>
-        <input
-          placeholder="Search"
-          value={value}
-          ref={inputSearchWord}
-          onChange={getValue}
-          onKeyDown={deleteValue}
-        />
+      <div className={mainClassCss}>
+        <form>
+          <input
+            type="text"
+            ref={inputSearchWord}
+            className={`${mainClassCss}__input`}
+            placeholder="Search..."
+            value={value}
+            onChange={getValue}
+            onKeyDown={deleteValue}
+          />
+        </form>
       </div>
     )
   }
