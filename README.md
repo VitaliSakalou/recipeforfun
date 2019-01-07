@@ -1,9 +1,9 @@
 ## Recipes for fun
-In this propject I have used the following technologies:
-    -HTML/CSS/JS(ES6)
-    -ReactJS/Redux
-    -NodeJS/NPM
-    -AJAX
+In this project I have used the following technologies:
+    - HTML/CSS/JS(ES6)
+    - ReactJS/Redux
+    - NodeJS/NPM
+    - AJAX
 
 I have used the following packages:
     - redux-thunk
