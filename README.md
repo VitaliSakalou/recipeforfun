@@ -1,3 +1,22 @@
+## Recipes for fun
+In this propject I have used the following technologies:
+    -HTML/CSS/JS(ES6)
+    -ReactJS/Redux
+    -NodeJS/NPM
+    -AJAX
+
+I have used the following packages:
+    - redux-thunk
+    - react-redux
+    - react-router-dom
+    - classnames
+    - events
+    - es6-promise
+    - isomorphic-fetch
+    - react-transition-group
+    
+    For bundling I have used Webpack
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
