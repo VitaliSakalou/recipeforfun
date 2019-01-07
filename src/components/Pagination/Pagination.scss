@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .pagination-component{
     display: flex;
     justify-content: flex-start;
@@ -9,24 +11,29 @@
         justify-content: flex-start;
     }
     &__page{
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 10px;
         width: 2rem;
         cursor: pointer;
-        transition: .3s;
-        color: grey;
+        transition: $transition;
+        color: $gray-500;
         vertical-align: middle;
+        @media (min-width: 768px) {
+            font-size: 1.2rem;
+        }
         &--active {
-            color: black;
+            color: $black;
         }
         &:hover{
-            color:orange;
+            color:$orange;
         }
     }
     &__switch-pages-button{
-        padding: 10px;
-        padding-top: 15px;
-        transition: .3s;
+        padding: 15px 5px 10px 5px;
+        transition: $transition;
+        @media (min-width: 768px) {
+            padding: 10px;
+        }
         &:hover{
             opacity: .7;
         }

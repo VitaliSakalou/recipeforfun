@@ -38,7 +38,7 @@ class SearchMainComponent extends React.PureComponent {
     } = this
     return (
       <div className={mainClassCss}>
-        <NavLink exact to="/random" activeClassName="menu__item--selected">
+        <NavLink exact to="/random">
           <span className={`${mainClassCss}__surprise`}>
             <SurpriseMeComponent />
           </span>

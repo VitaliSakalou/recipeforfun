@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import SearchMainComponent from '../../containers/SearchMainComponent/SearchMainComponent'
 import Menu from '../Menu/Menu'
+import MobileMenu from '../MobileMenu/MobileMenu'
 import './Header.scss'
 
 class Header extends React.PureComponent {
@@ -63,11 +64,21 @@ class Header extends React.PureComponent {
           <SearchMainComponent />
         </div>
         <section className={`${mainClassCss}__title`}>
-          <h1 className={`${mainClassCss}__main-title`}>
+          <h1
+            className={classNames({
+              [`${mainClassCss}__main-title`]: true,
+              [`${mainClassCss}__main-title--small`]: small,
+            })}
+          >
             {title.toUpperCase()}
           </h1>
         </section>
-        <Menu />
+        <div className={`${mainClassCss}__menu`}>
+          <Menu />
+        </div>
+        <div className={`${mainClassCss}__mobile-menu`}>
+          <MobileMenu />
+        </div>
         <div
           className={`${mainClassCss}__bg ${mainClassCss}__bg-${numberOfBackground}`}
         />

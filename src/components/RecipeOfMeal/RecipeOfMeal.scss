@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .recipe-of-meal{
     min-height: 200px;
     &__description{
@@ -9,10 +11,14 @@
         padding: 50px;
     }
     &__img{
-        height: 300px;
+        width: 100%;
         grid-area: item-1;
         border-radius: 10px;
-        border: 2px white solid;
+        border: 2px $white solid;
+        @media (min-width: 768px) {
+            width: auto;
+            height: 300px;
+        }
     }
     &__meal-container{
         border-radius: 10px;
@@ -21,22 +27,29 @@
     &__figure{
         padding: 30px;
         border-radius: 10px;
-        background: rgba(26, 26, 26, 0.4);
+        background: $dark-50;
         display: grid;
-        grid-template-columns:  repeat(3, 1fr);
-        grid-template-rows: auto;
-        grid-gap: 10px;
+        grid-template-columns:  repeat(1, 100%);
+        grid-template-rows: repeat(2, auto);
+        grid-gap:8px;
         grid-template-areas: 
-        "item-1 item-2 item-2";
+        "item-1"
+        "item-2";
+        @media (min-width: 768px) {
+            grid-template-columns:  repeat(3, 1fr);
+            grid-template-rows: auto;
+            grid-gap: 10px;
+            grid-template-areas: 
+            "item-1 item-2 item-2";
+        }
     }
     &__figcaption{
         grid-area: item-2;
         position: relative;
-        color: white;
+        color: $white;
         &-name{
             font-size: 3rem; 
-            border-bottom: 1px solid rgb(177, 176, 176);
-            // line-height: 6rem;
+            border-bottom: 1px solid $gray-400;
             padding-bottom: 20px;
         }
         &-tags{
@@ -46,26 +59,30 @@
     &__ingredients{
         padding: 30px 0;
         display: grid;
-        grid-template-columns:  repeat(2, 1fr);
         // grid-template-rows: repeat(10,auto);
-        grid-gap: 10px;
+        grid-template-columns:  repeat(1, 1fr);
+        grid-template-rows: auto;
+        grid-gap: 8px;
+        @media (min-width: 768px) {
+            grid-template-columns:  repeat(2, 1fr);
+        }
     }
     &__ingredient{
         padding:  10px;
-        background: rgb(241, 241, 241);
+        background: $gray-200;
         border-radius: 10px;
-        transition: .3s;
+        transition: $transition;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: space-between;
         &:hover{
-            box-shadow: 0 10px 20px 0 rgba(51, 72, 94, 0.15), 0 2px 5px 0 rgba(133, 172, 211, 0.15);
+            box-shadow: 0 10px 20px 0 $dark-50, 0 2px 5px 0 $dark-15;
         }
         &-description{ 
             flex-basis: 50%;
             text-align: left;
-            font-family: 'Roboto', sans-serif;
+            font-family: $Roboto;
             font-size: 1.2rem;
             &:last-child{
             text-align: right;
@@ -78,13 +95,21 @@
         &-img{
             height: 50px;
             &--big{
-                width: 60vh;
-                height: 60vh;
+                width: 40vh;
+                height: 40vh;
+                @media (min-width: 768px) {
+                    width: 60vh;
+                    height: 60vh;
+                }
             }
             &-preloader{
-                width: 60vh;
-                height: 60vh;
+                width: 40vh;
+                height: 40vh;
                 padding-top: 100px;
+                @media (min-width: 768px) {
+                    width: 60vh;
+                    height: 60vh;
+                }
             }
         }
         
@@ -96,15 +121,17 @@
         height: 100%;
         &-description{
             text-align: center;
-            font-family: 'Roboto', sans-serif;
+            font-family: $Roboto;
             font-size: 1.2rem;
         }
     }
     &__video{
-        width: 50%;
-        float: left;
         margin: 0 30px 30px 0;
-        
+        width: 100%;
+        @media (min-width: 768px) {
+            float: left;
+            width: 50%;
+        }
         iframe{
             width: 100%;
             height: 315px;   
@@ -117,16 +144,18 @@
             clear: both;
         }
         padding: 30px ;
-        font-family: 'Roboto', sans-serif;
+        font-family: $Roboto;
         line-height: 1.5rem;
-        background: rgb(241, 241, 241);
+        background: $gray-200;
         border-radius: 10px;
-        span{text-indent: 1rem}
+        p{
+            text-indent: 2rem
+        }
     }
     &__switch-ingredients-button{
         padding: 10px;
         padding-top: 15px;
-        transition: .3s;
+        transition: $transition;
         &:hover{
             opacity: .7;
         }

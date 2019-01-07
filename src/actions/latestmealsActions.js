@@ -17,7 +17,7 @@ export const getLatestMeals = latestmeals => dispatch => {
       }
     })
     .then(function(stories) {
-      console.log('stories', stories)
+      // console.log('stories', stories)
       dispatch({ type: GET_LATESTMEALS_SUCCESS, payload: stories })
     })
     .catch(error => {

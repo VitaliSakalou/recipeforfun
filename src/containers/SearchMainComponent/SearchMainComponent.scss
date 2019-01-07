@@ -1,13 +1,12 @@
+@import '../../scss/variables.scss';
+
 .search-btn-component {
     display: flex;
     justify-content: flex-end;
-    &__surprise{
-        padding: 15px 15px 10px 0;
-    }
     &__button{
         padding: 15px 0 10px 0;
-        transition: .3s;
-        color: white;
+        transition: $transition;
+        color: $white;
         opacity: .7;
         
         &--open{

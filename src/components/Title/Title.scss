@@ -1,10 +1,17 @@
+@import '../../scss/variables.scss';
 .title{
     text-align: center;
-    font-size: 4rem;
-    color: rgba(180, 190, 220, 1);
+    font-size: 2rem;
+    color: $gray-500;
     padding: 50px;
     min-height: 200px;
     &__small{
-        font-size: 3rem;
+        font-size: 1.5rem;
+    }
+    @media (min-width: 768px){
+        font-size: 4rem;
+        &__small{
+            font-size: 3rem;
+        }        
     }
 }

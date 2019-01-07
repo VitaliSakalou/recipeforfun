@@ -8,7 +8,6 @@ import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import Title from '../../components/Title/Title'
 import PreviousPage from '../../components/PreviousPage/PreviousPage'
-import './ListOfRecipes.scss'
 
 class ListOfRecipes extends React.PureComponent {
   static propTypes = {
@@ -38,7 +37,7 @@ class ListOfRecipes extends React.PureComponent {
         <Header small={true} />
         <PreviousPage func={() => history.push(`/${match.params.type}`)} />
         <Title title={`${match.params.param} meals`} />
-        <main className={`${mainClassCss}__list container`}>
+        <main className={`container`}>
           <Recipes listOfMeals={listOfMeals} match={match} />
         </main>
         <Footer text={'vitali.sakalou@gmail.com'} />

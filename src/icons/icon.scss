@@ -1,3 +1,5 @@
+@import '../scss/variables.scss';
+
 .Icon {
     height: 1 rem;
     width: 1rem;
@@ -7,12 +9,12 @@
     &.previous{
         height: 50px;
         opacity: .7;
-        transition: .3s;
+        transition: $transition;
         &:hover{
             opacity: 1;
         }
     }
     g .outline{
-        transition: .3s;
+        transition: $transition;
     }
 }

@@ -1,0 +1,58 @@
+@import '../../scss/variables.scss';
+
+.CheckBoxComponent {
+  position: relative;
+  outline: none;
+  & .CheckBoxComponent__input{
+    display: none;
+    &:checked + label:before{
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background-color: #fff;
+      border-radius: 50%;
+      left: 22px;
+      transition: .2s;
+      -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+    }
+    &:checked + label .check-btn{
+      transition: .2s;
+      background-color: rgb(84, 192, 138);
+    }
+  }
+  & .CheckBoxComponent__slider{
+    position: relative;
+    padding-left: 60px;
+    height: 24px;
+    display: inline-block;
+    user-select: none;
+    cursor: pointer;
+    &:before{
+      content: '';
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: #fff;
+      z-index: 1;
+      left: 0px;
+      top: 0px;
+      transition: .2s;
+      -webkit-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75);
+    }
+    & .check-btn{
+      position: absolute;
+      width: 44px;
+      height: 14px;
+      border-radius: 28px;
+      background-color: rgba(140, 150, 177, 0.5);
+      left: 0;
+      top: 5px;
+    }
+  }
+}

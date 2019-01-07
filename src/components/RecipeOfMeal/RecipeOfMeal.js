@@ -227,7 +227,7 @@ class RecipeOfMeal extends React.PureComponent {
                     />
                   </section>
                 )}
-                <span>{currentMeal.strInstructions}</span>
+                <p>{currentMeal.strInstructions}</p>
               </article>
             </div>
           )

@@ -7,7 +7,6 @@ import { getRandomMeals } from '../../actions/randommealsActions'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 import Title from '../../components/Title/Title'
-import './RandomRecipeContainer.scss'
 
 class RandomRecipeContainer extends React.PureComponent {
   static propTypes = {

@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .search-tile-component{
     &__front{
         padding: 15px;
@@ -6,7 +8,7 @@
       }
       &__button{
         padding: 10px;
-        transition: .3s;
+        transition: $transition;
         &--close{
             &:hover{
                 opacity: .7;
@@ -18,7 +20,7 @@
     }
     &__wrapper{
         height:0px;
-        transition: .3s;
+        transition: $transition;
         &--small-height{
           height: 140px;
         }
@@ -34,16 +36,17 @@
       &__no-result{
         text-align: center;
         margin-bottom: 20px;
-        font-size: 1.2rem;
         height: 120px;
-        font-family: 'Roboto', sans-serif;
         span {
           display: inline-block;
           height: 100%;
           width: 30%;
-          background: url('../../img/empty-plate.jpg') no-repeat 50% 50% / 50%;
+          background: url('../../img/empty-plate.gif') no-repeat 50% 50% / 80%;
           line-height: 120px;
           vertical-align: baseline;
+          @media (min-width: 768px) {
+            background: url('../../img/empty-plate.gif') no-repeat 50% 50% / 50%;
+          }
         }
       }
       &__error{
@@ -51,7 +54,7 @@
         margin-bottom: 20px;
         font-size: 1.2rem;
         height: 120px;
-        font-family: 'Roboto', sans-serif;
+        font-family: $Roboto;
         span {
           display: inline-block;
           height: 100%;

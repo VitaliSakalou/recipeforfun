@@ -1,10 +1,12 @@
+@import '../../scss/variables.scss';
+
 .surprise-me-component{
     cursor: pointer;
-    transition: .5s;
+    transition: $transition-slow;
     opacity: .7;
-    margin: 0 25px;
+    margin: 15px 25px 0 25px;
     &__message{
-        transition: .5s;
+        transition: $transition-slow;
         transition-delay: 0s;
         opacity: 0;
     }
@@ -12,7 +14,7 @@
         opacity:1;
         .surprise-me-component__message{
             opacity:1; 
-            transition-delay: .3s;
+            transition-delay: $transition;
         }
     }
 }

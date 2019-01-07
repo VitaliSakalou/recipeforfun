@@ -81,9 +81,7 @@ class SearchTileComponent extends React.PureComponent {
               </div>
             ) : typeof meals.resultOfSearch === 'string' ? (
               <div className={` ${mainClassCss}__no-result`}>
-                <span>
-                  <p>{meals.resultOfSearch}</p>
-                </span>
+                <span>{/* <p>{meals.resultOfSearch}</p> */}</span>
               </div>
             ) : (
               <SearchResult

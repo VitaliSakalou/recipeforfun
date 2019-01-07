@@ -1,3 +1,5 @@
+@import '../../scss/variables.scss';
+
 .search-results {
     padding: 10px 25px 25px 25px;
     overflow: hidden;
@@ -13,75 +15,91 @@
         overflow: hidden;
         position: relative;
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         height: 80px;
         margin: 10px 0;
         border-radius: 10px;
-        transition: box-shadow .3s;
-        border: 1px rgba(134, 134, 134, 1) solid;
+        transition: box-shadow $transition;
+        border: 1px $gray-500 solid;
+        @media (min-width: 768px) {
+            justify-content: center;           
+        }
         &:hover {
-            box-shadow: 0 10px 20px 0 rgba(51, 72, 94, 0.15), 0 2px 5px 0 rgba(133, 172, 211, 0.15);
-            border: 1px rgba(62, 68, 80, 1) solid;
+            box-shadow: 0 10px 20px 0 $dark-50, 0 2px 5px 0 $dark-15;
+            border: 1px $gray-800 solid;
         }   
-        &::before{
-            content: '';
-            display: block;
-            height: 0;
-            width: 0;
-            border: 39px solid transparent;
-            border-right: 39px solid white; 
-            border-bottom: 39px solid white; 
-            position: absolute;
-            top:0px;
-            left: calc(30% - 78px);
+        @media (min-width: 768px) {
+            &::before{
+                content: '';
+                display: block;
+                height: 0;
+                width: 0;
+                border: 39px solid transparent;
+                border-right: 39px solid $white; 
+                border-bottom: 39px solid $white; 
+                position: absolute;
+                top:0px;
+                left: calc(30% - 78px);
+            }
+            &::after{
+                content: '';
+                display: block;
+                height: 0;
+                width: 0;
+                border: 39px solid transparent;
+                border-left: 39px solid $white; 
+                border-top: 39px solid $white; 
+                position: absolute;
+                top:0px;
+                left: 70%;
+            }
         }
-        &::after{
-            content: '';
-            display: block;
-            height: 0;
-            width: 0;
-            border: 39px solid transparent;
-            border-left: 39px solid white; 
-            border-top: 39px solid white; 
-            position: absolute;
-            top:0px;
-            left: 70%;
-        }
+       
     }
     &__image{
         height: 100%;
     }
     &__meal-container{
-        flex-basis: 40%;
-        border: white solid 1px;
-        background: white;
+        flex-basis: 70%;
+        border: $white solid 1px;
+        background: $white;
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
+        @media (min-width: 768px) {
+            flex-basis: 40%;            
+        }
     }
     &__meal-name{
         display: inline-block;
         font-size: 1.2rem;
-        font-family: 'Roboto', sans-serif;
-        color: black;
+        font-family: $Roboto;
+        color: $black;
         z-index: 1;
     }
     &__meal-pagination{
         font-size: 1.2rem;
-        font-family: 'Roboto', sans-serif;
-        color: black;
+        font-family: $Roboto;
+        color: $black;
         z-index: 1;
     }
     &__meal-flag{
+        display: none;
+        @media (min-width:768px) {
+        display: block;
         position: absolute;
         right: 0;
         width: 80px;
         height: 80px;
         text-align: center;
-        margin-right: 10%;
+        margin-right: 5%;
         font-size: 1rem;
-        font-family: 'Roboto', sans-serif;
-        color: black;
+        font-family: $Roboto;
+        color: $black;
+        }
+        @media (min-width: 992px){
+            margin-right: 10%;
+        }
     }
 }

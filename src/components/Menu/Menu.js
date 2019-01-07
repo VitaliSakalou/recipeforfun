@@ -57,10 +57,11 @@ class Menu extends React.PureComponent {
   changeMenuStyleOnScroll = () => {
     let coordY = this.refMenu.current.getBoundingClientRect().top
     let smallMenu = this.state.smallMenu
+
     if (coordY <= 0 && !smallMenu) {
       smallMenu = true
     } else if (
-      window.scrollY + this.refMenu.current.getBoundingClientRect().height <=
+      window.scrollY /*+ this.refMenu.current.getBoundingClientRect().height*/ <=
         this.state.startPositionY &&
       smallMenu
     ) {
@@ -68,17 +69,9 @@ class Menu extends React.PureComponent {
     } else {
       return
     }
-    if (smallMenu) {
-      setTimeout(() => {
-        this.setState({
-          smallMenu,
-        })
-      }, 300)
-    } else {
-      this.setState({
-        smallMenu,
-      })
-    }
+    this.setState({
+      smallMenu,
+    })
   }
 
   render() {
@@ -92,6 +85,7 @@ class Menu extends React.PureComponent {
         <div
           className={classNames({
             'menu--small-menu': smallMenu,
+            'menu--no-background': !smallMenu,
           })}
         >
           <div

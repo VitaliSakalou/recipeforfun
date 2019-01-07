@@ -1,9 +1,9 @@
-@import '../App';
+@import '../../scss/variables.scss';
 
 .search-component {
     position: absolute;
     z-index: 100;
-    background-color:white;
+    background-color:$white;
     top: 0;
     right: 0;
     left: 0;
@@ -13,7 +13,7 @@
   &__background{
     position: fixed;
     z-index: 90;
-    background-color: rgba(27, 39, 51, 0.5);
+    background-color: $dark-50;
     top:0;
     right: 0;
     left: 0;

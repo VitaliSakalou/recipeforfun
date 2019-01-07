@@ -7,8 +7,6 @@ import { getLatestMeals } from '../../actions/latestmealsActions'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
 
-import './main.scss'
-
 class Main extends React.PureComponent {
   static propTypes = {
     latestmeals: PropTypes.object,
