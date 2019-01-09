@@ -1,21 +1,21 @@
 ## Recipes for fun
-In this project I have used the following technologies:
-    - HTML/CSS/JS(ES6)
-    - ReactJS/Redux
-    - NodeJS/NPM
-    - AJAX
+In this project I have used the following technologies:<br>
+    - HTML/CSS/JS(ES6)<br>
+    - ReactJS/Redux<br>
+    - NodeJS/NPM<br>
+    - AJAX<br>
 
-I have used the following packages:
-    - redux-thunk
-    - react-redux
-    - react-router-dom
-    - classnames
-    - events
-    - es6-promise
-    - isomorphic-fetch
-    - react-transition-group
-    
-    For bundling I have used Webpack
+I have used the following packages:<br>
+    - redux-thunk<br>
+    - react-redux<br>
+    - react-router-dom<br>
+    - classnames<br>
+    - events<br>
+    - es6-promise<br>
+    - isomorphic-fetch<br>
+    - react-transition-group<br>
+    For bundling I have used Webpack <br>
+    For data I have used free data source api for recipes called "TheMealDB".
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
