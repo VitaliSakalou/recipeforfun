@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import SearchMainComponent from '../../containers/SearchMainComponent/SearchMainComponent'
 import Menu from '../Menu/Menu'
 import MobileMenu from '../MobileMenu/MobileMenu'
+
 import './Header.scss'
 
 class Header extends React.PureComponent {

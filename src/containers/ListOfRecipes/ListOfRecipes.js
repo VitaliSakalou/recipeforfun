@@ -7,7 +7,7 @@ import Recipes from '../../components/Recipes/Recipes'
 import Footer from '../../components/Footer/Footer'
 import Header from '../../components/Header/Header'
 import Title from '../../components/Title/Title'
-import PreviousPage from '../../components/PreviousPage/PreviousPage'
+// import PreviousPage from '../../components/PreviousPage/PreviousPage'
 
 class ListOfRecipes extends React.PureComponent {
   static propTypes = {
@@ -28,14 +28,14 @@ class ListOfRecipes extends React.PureComponent {
 
   render() {
     let {
-      props: { listOfMeals, match, history },
+      props: { listOfMeals, match /*history*/ },
       mainClassCss,
     } = this
     console.log(this.props)
     return (
       <div className={`${mainClassCss}`}>
         <Header small={true} />
-        <PreviousPage func={() => history.push(`/${match.params.type}`)} />
+        {/* <PreviousPage func={() => history.push(`/${match.params.type}`)} /> */}
         <Title title={`${match.params.param} meals`} />
         <main className={`container`}>
           <Recipes listOfMeals={listOfMeals} match={match} />

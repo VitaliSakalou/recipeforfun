@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 import { getMeal } from '../../actions/mealsActions'
 import Header from '../../components/Header/Header'
 import Footer from '../../components/Footer/Footer'
-import PreviousPage from '../../components/PreviousPage/PreviousPage'
+// import PreviousPage from '../../components/PreviousPage/PreviousPage'
 
 class Recipe extends React.PureComponent {
   static props = {
@@ -41,17 +41,17 @@ class Recipe extends React.PureComponent {
 
   render() {
     let {
-      props: { meals, history, match },
+      props: { meals, /*history,*/ match },
       mainClassCss,
     } = this
     return (
       <div className={`${mainClassCss}`}>
         <Header small={true} />
-        <PreviousPage
+        {/* <PreviousPage
           func={() =>
             history.push(`/${this.definedBackUrl(match.params.type)}`)
           }
-        />
+        /> */}
         <main className={'container'}>
           <RecipeOfMeal meals={meals} match={match} />
         </main>
