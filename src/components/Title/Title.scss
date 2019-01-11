@@ -5,6 +5,9 @@
     color: $gray-500;
     padding: 50px;
     min-height: 200px;
+    &--dark{
+        color: $white;
+    }
     &__small{
         font-size: 1.5rem;
     }

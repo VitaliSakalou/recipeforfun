@@ -12,7 +12,7 @@ class Category extends React.Component {
     categories: PropTypes.object,
   }
 
-  mainClassCss = 'caregory'
+  mainClassCss = 'category'
 
   componentDidMount() {
     this.props.categories.listOfCategories.length === 0 &&

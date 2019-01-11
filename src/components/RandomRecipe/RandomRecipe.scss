@@ -56,13 +56,21 @@
             }
         }
         &::after{
-            content: 'Touch image';
+            content: 'Touch image to view recipe';
             @media (min-width: 768px) {
-                content: 'Click image';
+                content: 'Click image to view recipe';
+                border: 1px solid $gray-300;
             }
             position: absolute;
+            text-align: center;
+            margin: auto;
             bottom: 5px;
-            right: 15px;
+            padding: 20px;
+            margin: auto;
+            left: 0;
+            right: 0;
+            width: 200px;
+            border: 1px solid $gray-300;
             color: $gray-300;
         }
     }

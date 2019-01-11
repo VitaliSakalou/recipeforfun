@@ -2,13 +2,21 @@
 
 .search-btn-component {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    @media (min-width: 768px) {
+        justify-content: space-between;
+        flex-direction: row;
+    }
+    &__right-side{
+        display: flex;
+        justify-content: flex-end;
+    }
     &__button{
         padding: 15px 0 10px 0;
         transition: $transition;
         color: $white;
         opacity: .7;
-        
         &--open{
             &:hover{
                 opacity: 1;

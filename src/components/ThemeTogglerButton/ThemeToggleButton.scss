@@ -1,0 +1,17 @@
+@import './../../scss/variables.scss';
+.button{
+    width: 100px;
+    height: 50px;
+    margin: 15px;
+    border: 1px solid $white;
+    color: $white;
+    opacity: .7;
+    transition: $transition;
+    &:hover {
+        opacity: 1;
+    }
+}
+.dark-theme {
+    background: $gray-500;
+    opacity: 1;
+}
