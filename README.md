@@ -17,6 +17,13 @@ I have used the following packages:<br>
     For bundling I have used Webpack <br>
     For data I have used free data source api for recipes called "TheMealDB".
 
+Also in the project I have used such React features as: <br>
+    - Context<br>
+    - Portal<br>
+    - Higher-Order Components<br>
+    - Refs<br>
+    - Fragment and others.<br>
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
