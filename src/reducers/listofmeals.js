@@ -1,6 +1,7 @@
 import { GET_LISTOFMEALS_REQUEST } from '../actions/listOfMealsActions'
 import { GET_LISTOFMEALS_SUCCESS } from '../actions/listOfMealsActions'
 import { GET_LISTOFMEALS_ERROR } from '../actions/listOfMealsActions'
+import { Map } from 'immutable'
 
 const initialState = {
   listOfMeals: {},
@@ -17,12 +18,16 @@ export function listofmealsReducer(state = initialState, action) {
         error: false,
       }
     case GET_LISTOFMEALS_SUCCESS:
+      const prevMap = Map(state.listOfMeals)
       return {
         ...state,
-        listOfMeals: {
-          ...state.listOfMeals,
-          [action.key]: [...action.payload.meals],
-        },
+        listOfMeals: prevMap
+          .set([action.key], [...action.payload.meals]) //use immutable.js just for learning
+          .toJS(),
+        // {
+        // ...state.listOfMeals,
+        // [action.key]: [...action.payload.meals],
+        // }
         isFetching: false,
         error: false,
       }

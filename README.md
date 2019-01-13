@@ -9,6 +9,7 @@ I have used the following packages:<br>
     - redux-thunk<br>
     - react-redux<br>
     - react-router-dom<br>
+    - immutable<br>
     - classnames<br>
     - events<br>
     - es6-promise<br>
