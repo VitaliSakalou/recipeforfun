@@ -3,7 +3,7 @@ import { GET_LISTOFMEALS_SUCCESS } from '../actions/listOfMealsActions'
 import { GET_LISTOFMEALS_ERROR } from '../actions/listOfMealsActions'
 import { Map } from 'immutable'
 
-const initialState = {
+export const initialState = {
   listOfMeals: {},
   isFetching: false,
   error: false,
