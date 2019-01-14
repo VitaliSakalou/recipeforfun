@@ -4,6 +4,7 @@ In this project I have used the following technologies:<br>
     - ReactJS/Redux<br>
     - NodeJS/NPM<br>
     - AJAX<br>
+    - Jest<br>
 
 I have used the following packages:<br>
     - redux-thunk<br>
