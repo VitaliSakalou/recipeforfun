@@ -10,6 +10,7 @@ I have used the following packages:<br>
     - react-redux<br>
     - react-router-dom<br>
     - immutable<br>
+    - jest<br>
     - classnames<br>
     - events<br>
     - es6-promise<br>
