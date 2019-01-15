@@ -7,6 +7,9 @@ import RandomRecipeContainer from './RandomRecipeContainer/RandomRecipeContainer
 import ListOfRecipes from './ListOfRecipes/ListOfRecipes'
 import Recipe from './Recipe/Recipe'
 import { ThemeContext } from './Context/ThemeContext'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { store } from '../store/configureStore'
+import { Provider } from 'react-redux'
 import './App.scss'
 
 class App extends Component {
@@ -40,9 +43,15 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeContext.Provider value={this.state}>
-        <div className={`App--${this.state.theme} `}>{this.pageRender()}</div>
-      </ThemeContext.Provider>
+      <Provider store={store}>
+        <Router>
+          <ThemeContext.Provider value={this.state}>
+            <div className={`App--${this.state.theme} `}>
+              {this.pageRender()}
+            </div>
+          </ThemeContext.Provider>
+        </Router>
+      </Provider>
     )
   }
 }
