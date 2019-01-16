@@ -20,5 +20,8 @@ describe('last recipes container', () => {
       expect(lastRecipes.find('div')).toHaveLength(1)
       expect(lastRecipes.find('a')).toHaveLength(0)
     })
+    it('renders properly', () => {
+      expect(lastRecipes).toMatchSnapshot()
+    })
   })
 })
