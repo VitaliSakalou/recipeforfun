@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import Pagination from '../Pagination/Pagination'
 import { getCountryFlag } from '../../functions/functions'
 import { closeOpenEvents } from '../../events/events'
+import DefaultMealImg from '../../img/default.jpg'
 
 import './SearchResult.scss'
 
@@ -108,7 +109,7 @@ class SearchResult extends React.PureComponent {
                       className={`${mainClassCss}__page`}
                       style={{
                         background: `url(${
-                          item.strMealThumb
+                          item.strMealThumb ? item.strMealThumb : DefaultMealImg
                         }) rgb(240, 240, 240) no-repeat left center / 30% auto`,
                       }}
                     >

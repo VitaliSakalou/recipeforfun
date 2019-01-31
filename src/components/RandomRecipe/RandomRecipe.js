@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Preloader from '../Preloader/Preloader'
 import { NavLink } from 'react-router-dom'
 import ButtomRandomRecipe from '../ButtomRandomRecipe/ButtomRandomRecipe'
+import DefaultMealImg from '../../img/default.jpg'
 
 import './RandomRecipe.scss'
 
@@ -37,6 +38,8 @@ class RandomRecipe extends React.PureComponent {
               style={{
                 background: `url(${
                   randommeals.randommeal.strMealThumb
+                    ? randommeals.randommeal.strMealThumb
+                    : DefaultMealImg
                 }) 50% 50%`,
               }}
             >
