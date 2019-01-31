@@ -8,6 +8,7 @@ import Portal from '../Portal/Portal'
 import { getCountryFlag } from '../../functions/functions'
 import { CSSTransitionGroup } from 'react-transition-group'
 import ArrowIcon from '../../icons/ArrowIcon'
+import DefaultMealImg from '../../img/default.jpg'
 
 import './RecipeOfMeal.scss'
 
@@ -150,13 +151,19 @@ class RecipeOfMeal extends React.PureComponent {
                 style={{
                   background: `url(${
                     currentMeal.strMealThumb
+                      ? currentMeal.strMealThumb
+                      : DefaultMealImg
                   }) no-repeat 0 50% / cover`,
                 }}
               >
                 <figure className={`${mainClassCss}__figure`}>
                   <img
                     className={`${mainClassCss}__img`}
-                    src={currentMeal.strMealThumb}
+                    src={
+                      currentMeal.strMealThumb
+                        ? currentMeal.strMealThumb
+                        : DefaultMealImg
+                    }
                     alt={currentMeal.strMeal}
                   />
                   <figcaption className={`${mainClassCss}__figcaption`}>

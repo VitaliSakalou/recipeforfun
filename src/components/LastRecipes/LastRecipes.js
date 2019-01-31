@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Preloader from '../Preloader/Preloader'
 import Title from '../Title/Title'
 import { NavLink } from 'react-router-dom'
+import DefaultMealImg from '../../img/default.jpg'
 
 import './LastRecipes.scss'
 
@@ -48,7 +49,7 @@ class LastRecipes extends React.PureComponent {
                     className={`${mainClassCss}__figure`}
                     style={{
                       background: `url(${
-                        item.strMealThumb
+                        item.strMealThumb ? item.strMealThumb : DefaultMealImg
                       }) no-repeat 0 50% / cover`,
                     }}
                   >
