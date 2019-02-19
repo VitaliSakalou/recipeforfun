@@ -52,6 +52,8 @@ function getCountryFlag(country) {
       return 'th'
     case 'Vietnamese':
       return 'vn'
+    case 'Egyptian':
+      return 'eg'
     case 'Unknown':
       return 'aq'
     default:
