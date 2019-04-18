@@ -54,6 +54,8 @@ function getCountryFlag(country) {
       return 'vn'
     case 'Egyptian':
       return 'eg'
+    case 'Kenyan':
+      return 'ke'
     case 'Unknown':
       return 'aq'
     default:
