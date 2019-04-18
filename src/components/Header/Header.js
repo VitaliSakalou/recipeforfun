@@ -71,7 +71,7 @@ class Header extends React.PureComponent {
               [`${mainClassCss}__main-title--small`]: small,
             })}
           >
-            {title /*.toUpperCase()*/}
+            {title.toUpperCase()}
           </h1>
         </section>
         <div className={`${mainClassCss}__menu`}>
