@@ -56,6 +56,8 @@ function getCountryFlag(country) {
       return 'eg'
     case 'Kenyan':
       return 'ke'
+    case 'Tunisian':
+      return 'tn'
     case 'Unknown':
       return 'aq'
     default:
@@ -69,7 +71,7 @@ function getFoodIcon(category) {
       return <BeefIcon />
     case 'Chicken':
       return <ChickenIcon />
-    case 'Desert':
+    case 'Dessert':
       return <DesertIcon />
     case 'Lamb':
       return <LambIcon />
