@@ -11,6 +11,8 @@ import SideIcon from '../icons/foodIcons/sideIcon'
 import StarterIcon from '../icons/foodIcons/starterIcon'
 import VeganIcon from '../icons/foodIcons/veganIcon'
 import VegetarianIcon from '../icons/foodIcons/vegetarianIcon'
+import GoatIcon from '../icons/foodIcons/goatIcon'
+import BreakfastIcon from '../icons/foodIcons/breakfastIcon'
 
 function getCountryFlag(country) {
   switch (country) {
@@ -93,6 +95,10 @@ function getFoodIcon(category) {
       return <VeganIcon />
     case 'Vegetarian':
       return <VegetarianIcon />
+    case 'Breakfast':
+      return <BreakfastIcon />
+    case 'Goat':
+      return <GoatIcon viewBox={'0 0 410 410'} />
     default:
       return null
   }
