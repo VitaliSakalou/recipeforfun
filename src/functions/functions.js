@@ -58,6 +58,8 @@ function getCountryFlag(country) {
       return 'ke'
     case 'Tunisian':
       return 'tn'
+    case 'Turkish':
+      return 'tr'
     case 'Unknown':
       return 'aq'
     default:

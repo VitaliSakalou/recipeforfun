@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import SearchMainComponent from '../../containers/SearchMainComponent/SearchMainComponent'
+import SlidingPerspectiveText from '../SlidingPerspectiveText/SlidingPerspectiveText'
 import Menu from '../Menu/Menu'
 import MobileMenu from '../MobileMenu/MobileMenu'
 
@@ -73,6 +74,7 @@ class Header extends React.PureComponent {
           >
             {title.toUpperCase()}
           </h1>
+          {/* <SlidingPerspectiveText /> */}
         </section>
         <div className={`${mainClassCss}__menu`}>
           <Menu />

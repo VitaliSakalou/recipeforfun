@@ -1,0 +1,78 @@
+@import '../../scss/variables.scss';
+* {
+  margin: 0;
+}
+.perspectiveText {
+  overflow: hidden;
+  font-size: 58px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  @media (min-width: 768px) {
+    font-size: 80px;
+    height: 420px;
+    padding-top: 80px;
+  }
+  text-transform: uppercase;
+  text-align: center;
+  color:  $white;
+  .perspectiveLine {
+    @media (min-width: 768px) {
+      height: 72px;
+    }
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+  }
+  .perspectiveLine:nth-child(odd) {
+    transform: skew(60deg, -30deg) scaleY(0.667);
+  }
+  .perspectiveLine:nth-child(even) {
+    transform: skew(0deg, -30deg) scaleY(1.333);
+  }
+  &:hover p {
+    transform: translate(0, -50px);
+    @media (min-width: 768px) {
+      transform: translate(0, -72px);
+    }
+  }
+  .perspectiveLine:nth-child(1) {
+    left: 29px;
+    @media (min-width: 768px) {
+      left: 40px;
+    }
+  }
+  .perspectiveLine:nth-child(2) {
+    left: 58px;
+    @media (min-width: 768px) {
+      left: 80px;
+    }
+  }
+  .perspectiveLine:nth-child(3) {
+    left: 87px;
+    @media (min-width: 768px) {
+      left: 120px;
+    }
+  }
+  .perspectiveLine:nth-child(4) {
+    left: 116px;
+    @media (min-width: 768px) {
+      left: 160px;
+    }
+  }
+  .perspectiveLine:nth-child(5) {
+    left: 145px;
+    @media (min-width: 768px) {
+      left: 200px;
+    }
+  }
+  p {
+    margin: 0;
+    height: 50px;
+    line-height: 50px;
+    @media (min-width: 768px) {
+      height: 72px;
+      line-height: 72px;
+    }
+    transition: all 0.5s ease-in-out;
+  }
+}
