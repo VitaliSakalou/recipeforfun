@@ -28,7 +28,7 @@ class LastRecipes extends React.PureComponent {
 
     return (
       <section className={`${mainClassCss}`}>
-        <Title title={`10 Latest Meals`} />
+        <Title title={`Random Meals`} />
 
         {latestmeals.error ? (
           <p className={`${mainClassCss}__loader`}>{latestmeals.error}</p>

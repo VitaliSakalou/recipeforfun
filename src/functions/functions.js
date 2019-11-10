@@ -120,4 +120,9 @@ function getPhrase(key) {
   }
 }
 
-export { getCountryFlag, getFoodIcon, getPhrase }
+function getRandomString() {
+  const characters = 'abcdefghijklmnoprstvwy'
+  return characters.charAt(Math.floor(Math.random() * characters.length))
+}
+
+export { getCountryFlag, getFoodIcon, getPhrase, getRandomString }

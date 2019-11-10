@@ -17,9 +17,10 @@ export function latestmealsReducer(state = initialState, action) {
         error: false,
       }
     case GET_LATESTMEALS_SUCCESS:
+      const meals = action.payload.map(item => item.meals[0])
       return {
         ...state,
-        listoflatestmeals: [...action.payload.meals],
+        listoflatestmeals: meals,
         isFetching: false,
         error: false,
       }
