@@ -1,4 +1,3 @@
-import { getRandomString } from './../functions/functions'
 export const GET_LATESTMEALS_REQUEST = 'GET_LATESTMEALS_REQUEST'
 export const GET_LATESTMEALS_SUCCESS = 'GET_LATESTMEALS_SUCCESS'
 export const GET_LATESTMEALS_ERROR = 'GET_LATESTMEALS_ERROR'
