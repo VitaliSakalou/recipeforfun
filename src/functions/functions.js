@@ -62,6 +62,10 @@ function getCountryFlag(country) {
       return 'tn'
     case 'Turkish':
       return 'tr'
+    case 'Polish':
+      return 'pl'
+    case 'Portuguese':
+      return 'pt'
     case 'Unknown':
       return 'aq'
     default:
